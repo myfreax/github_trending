@@ -1,3 +1,5 @@
+## 0.1.2
+-  Fix error package name in doc 
 ## 0.1.1
 
 - Rename class method
