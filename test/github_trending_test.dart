@@ -1,4 +1,4 @@
-import 'package:github_trending/github_trending.dart';
+import 'package:github_trend/github_trending.dart';
 import 'package:test/test.dart';
 
 void main() {

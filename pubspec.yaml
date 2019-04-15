@@ -1,4 +1,4 @@
-name: github_trending
+name: github_trend
 description: github trending api for dart
 version:  0.1.0
 homepage: https://github.com/huangyanxiong01/github_trending
