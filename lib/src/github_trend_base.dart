@@ -3,7 +3,7 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
-class GithubTrending {
+class GithubTrend {
   http.Response response;
   List<String> languages = [];
   String _uri = 'https://github.com/trending';

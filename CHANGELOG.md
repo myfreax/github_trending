@@ -2,7 +2,7 @@
 
 - Rename class method
 - Add fetch languages method to class and example,test
-
+- Rename package name
 ## 0.1.0
 
 - Initial version, created by Stagehand

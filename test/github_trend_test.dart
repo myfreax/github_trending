@@ -1,26 +1,26 @@
-import 'package:github_trend/github_trending.dart';
+import 'package:github_trend/github_trend.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('github trending', () {
-    GithubTrending githubTrending;
+    GithubTrend githubTrend;
 
     setUp(() {
-      githubTrending = GithubTrending();
+      githubTrend = GithubTrend();
     });
 
     test('get default list', () async{
-      List<Map<String, dynamic>> array = await githubTrending.fetchTrendingRepos();
+      List<Map<String, dynamic>> array = await githubTrend.fetchTrendingRepos();
       expect(array, isList);
     });
 
     test('get rust language list', () async{
-      List<Map<String, dynamic>> array = await githubTrending.fetchTrendingRepos(language: 'rust');
+      List<Map<String, dynamic>> array = await githubTrend.fetchTrendingRepos(language: 'rust');
       expect(array[0]['language'] , 'Rust');
     });
 
     test('fetch github language', () async{
-      List<String> array = await githubTrending.fetchLanguages();
+      List<String> array = await githubTrend.fetchLanguages();
       expect(array[0], 'All languages');
     });
   });
