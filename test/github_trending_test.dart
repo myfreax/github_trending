@@ -10,13 +10,18 @@ void main() {
     });
 
     test('get default list', () async{
-      List<Map<String, dynamic>> array = await githubTrending.toList();
+      List<Map<String, dynamic>> array = await githubTrending.fetchTrendingRepos();
       expect(array, isList);
     });
 
     test('get rust language list', () async{
-      List<Map<String, dynamic>> array = await githubTrending.toList(language: 'rust');
+      List<Map<String, dynamic>> array = await githubTrending.fetchTrendingRepos(language: 'rust');
       expect(array[0]['language'] , 'Rust');
+    });
+
+    test('fetch github language', () async{
+      List<String> array = await githubTrending.fetchLanguages();
+      expect(array[0], 'All languages');
     });
   });
 }

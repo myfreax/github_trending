@@ -1,7 +1,5 @@
-Github trending api for dart
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+# Github trending api for dart
+Get the popular repository on github,You can also get all the languages.And convert the data into Map, List, JSON
 
 ## Usage
 
@@ -24,4 +22,4 @@ try {
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/huangyanxiong01/github_trending/issues

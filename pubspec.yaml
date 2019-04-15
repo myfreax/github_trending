@@ -1,9 +1,8 @@
 name: github_trend
-description: github trending api for dart
-version:  0.1.0
+description: Get the popular repository on github,You can also get all the languages.And convert the data into Map, List, JSON
+version:  0.1.1
 homepage: https://github.com/huangyanxiong01/github_trending
 author: Freax <https://www.myfreax.com/>
-
 environment:
   sdk: '>=2.1.0 <3.0.0'
 
