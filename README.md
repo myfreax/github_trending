@@ -6,14 +6,14 @@ Get the popular repository on github,You can also get all the languages.And conv
 A simple usage example:
 
 ```dart
-GithubTrending githubTrending = GithubTrending();
+GithubTrend githubTrend = GithubTrend();
 try {
   // default time language
-  List<Map<String, dynamic>> defaultArray = await githubTrending.toList();
+  List<Map<String, dynamic>> defaultArray = await githubTrend.toList();
   print(defaultArray);
 } catch (e) {
   // get origin response
-  githubTrending.response;
+  githubTrend.response;
   print(e);
 }
 ```
