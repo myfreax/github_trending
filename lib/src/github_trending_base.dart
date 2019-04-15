@@ -3,12 +3,14 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
-
-class GithubTrending{
-  var response;
+class GithubTrending {
+  http.Response response;
+  List<String> languages = [];
   String _uri = 'https://github.com/trending';
 
-  Future  toList({language ='all',since = 'daily'}) async{
+  /// fetch github trending repos
+  Future<List<Map<String, dynamic>>> fetchTrendingRepos(
+      {language = 'all', String since = 'daily'}) async {
     if (language != 'all') {
       this._uri = this._uri + '/$language?since=$since';
     }
@@ -25,6 +27,7 @@ class GithubTrending{
           .attributes['href']
           .replaceFirst('/', '');
       repo['name'] = name;
+
       // description
       String description = repoHtml.querySelector('.py-1 p').text.trim();
       repo['description'] = description;
@@ -45,6 +48,8 @@ class GithubTrending{
       String fork =
           repoHtml.querySelector('a[href="/$name/network"]').text.trim();
       repo['fork'] = fork;
+
+      // build by
       List<String> buildBy =
           repoHtml.querySelectorAll('.avatar').map((Element ele) {
         return ele.attributes['src'].toString();
@@ -54,8 +59,24 @@ class GithubTrending{
       //today star
       String todayStar = repoHtml.querySelector('.float-sm-right').text.trim();
       repo['todayStar'] = todayStar;
+
       return repo;
     }).toList();
     return repos;
+  }
+
+  /// fetch github trending html page
+  Future<List<String>> fetchLanguages() async {
+    if (this.languages.isNotEmpty) {
+      return this.languages;
+    }
+    this.response = await http.get(this._uri);
+    Document document = parse(this.response.body);
+    List<Element> languagesHtml = document.querySelectorAll(
+        '.filter-list>li>a,div[data-filterable-for="text-filter-field"]>a>span');
+    this.languages = languagesHtml.map((Element ele) {
+      return ele.text.toString();
+    }).toList();
+    return this.languages;
   }
 }
