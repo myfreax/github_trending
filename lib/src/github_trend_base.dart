@@ -70,7 +70,9 @@ class GithubTrend {
     if (this.languages.isNotEmpty) {
       return this.languages;
     }
-    this.response = await http.get(this._uri);
+    if (this.response == null) {
+      this.response = await http.get(this._uri);
+    }
     Document document = parse(this.response.body);
     List<Element> languagesHtml = document.querySelectorAll(
         '.filter-list>li>a,div[data-filterable-for="text-filter-field"]>a>span');

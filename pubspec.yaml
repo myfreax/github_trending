@@ -1,6 +1,6 @@
 name: github_trend
 description: Get the popular repository on github,You can also get all the languages.And convert the data into Map, List, JSON
-version:  0.1.1
+version:  0.1.3
 homepage: https://github.com/huangyanxiong01/github_trending
 author: Freax <https://www.myfreax.com/>
 environment:
