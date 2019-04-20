@@ -11,7 +11,7 @@ main() async {
   // default time language
   try {
     List<Map<String, dynamic>> defaultArray =
-        await githubTrend.fetchTrendingRepos();
+        await githubTrend.fetchRepos();
     print(defaultArray);
   } catch (e) {
     // get origin response
@@ -21,16 +21,16 @@ main() async {
 
   // rust language and default time
   List<Map<String, dynamic>> rustArray =
-      await githubTrend.fetchTrendingRepos(language: 'rust');
+      await githubTrend.fetchRepos(language: 'rust');
   print(rustArray);
 
   // rust language and last weekly
   List<Map<String, dynamic>> rustWeekArray = await githubTrend
-      .fetchTrendingRepos(language: 'rust', since: 'weekly');
+      .fetchRepos(language: 'rust', since: 'weekly');
   print(rustWeekArray);
 
   // return default trending when pass error time and language params.
   List<Map<String, dynamic>> rustWeekArrayerror = await githubTrend
-      .fetchTrendingRepos(language: 'error', since: 'error');
+      .fetchRepos(language: 'error', since: 'error');
   print(rustWeekArrayerror);
 }

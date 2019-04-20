@@ -10,12 +10,12 @@ void main() {
     });
 
     test('get default list', () async{
-      List<Map<String, dynamic>> array = await githubTrend.fetchTrendingRepos();
+      List<Map<String, dynamic>> array = await githubTrend.fetchRepos();
       expect(array, isList);
     });
 
     test('get rust language list', () async{
-      List<Map<String, dynamic>> array = await githubTrend.fetchTrendingRepos(language: 'rust');
+      List<Map<String, dynamic>> array = await githubTrend.fetchRepos(language: 'rust');
       expect(array[0]['language'] , 'Rust');
     });
 

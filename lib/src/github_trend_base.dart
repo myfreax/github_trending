@@ -3,18 +3,20 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
+String uri = 'https://github.com/trending/';
+
 class GithubTrend {
   http.Response response;
+  final _uri = 'https://github.com/trending/';
   List<String> languages = [];
-  String _uri = 'https://github.com/trending';
-
   /// fetch github trending repos
-  Future<List<Map<String, dynamic>>> fetchTrendingRepos(
+  Future<List<Map<String, dynamic>>> fetchRepos(
       {language = 'all', String since = 'daily'}) async {
+    String uri = _uri;
     if (language != 'all') {
-      this._uri = this._uri + '/$language?since=$since';
+      uri = _uri + '$language?since=$since';
     }
-    this.response = await http.get(this._uri);
+    this.response = await http.get(uri.toLowerCase());
     Document document = parse(this.response.body);
     List<Element> reposHtml = document.querySelectorAll('.repo-list li');
 
@@ -29,7 +31,9 @@ class GithubTrend {
       repo['name'] = name;
 
       // description
-      String description = repoHtml.querySelector('.py-1 p').text.trim();
+      Element descritionNode = repoHtml.querySelector('.py-1 p');
+      String description =
+          descritionNode != null ? descritionNode.text.trim() : '';
       repo['description'] = description;
 
       // language
@@ -45,8 +49,10 @@ class GithubTrend {
       repo['star'] = star;
 
       // fork
-      String fork =
-          repoHtml.querySelector('a[href="/$name/network"]').text.trim();
+
+      Element forkNode =
+          repoHtml.querySelector('a[href="/$name/network/members"]');
+      String fork = forkNode != null ? forkNode.text.trim() : '';
       repo['fork'] = fork;
 
       // build by
@@ -57,7 +63,8 @@ class GithubTrend {
       repo['buildBy'] = buildBy;
 
       //today star
-      String todayStar = repoHtml.querySelector('.float-sm-right').text.trim();
+      Element todayStarNode = repoHtml.querySelector('.float-sm-right');
+      String todayStar = todayStarNode != null ? todayStarNode.text.trim() : '';
       repo['todayStar'] = todayStar;
 
       return repo;
@@ -71,7 +78,7 @@ class GithubTrend {
       return this.languages;
     }
     if (this.response == null) {
-      this.response = await http.get(this._uri);
+      this.response = await http.get(_uri);
     }
     Document document = parse(this.response.body);
     List<Element> languagesHtml = document.querySelectorAll(
