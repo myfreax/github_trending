@@ -1,8 +1,8 @@
-## 0.1.3
+## 0.1.4
  - Rename open api
  - Fix URI duplicate link error
 
-## 0.1.2
+## 0.1.3
  - Fix duplicate requests when getting a language
 
 ## 0.1.2
