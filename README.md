@@ -9,8 +9,9 @@ A simple usage example:
 GithubTrend githubTrend = GithubTrend();
 try {
   // default time language
-  List<Map<String, dynamic>> defaultArray = await githubTrend.fetchRepos();
-  print(defaultArray);
+  List<Map<String, dynamic>> repos = await githubTrend.fetchRepos();
+  List<String> languages = await githubTrend.fetchLanguages()
+  print(repos);
 } catch (e) {
   // get origin response
   githubTrend.response;
