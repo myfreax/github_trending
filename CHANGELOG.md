@@ -1,3 +1,7 @@
+## 0.1.6
+ - Add url return in fetchRepos function
+## 0.1.5
+ - Add fetch languages method to docs
 ## 0.1.4
  - Rename open api
  - Fix URI duplicate link error

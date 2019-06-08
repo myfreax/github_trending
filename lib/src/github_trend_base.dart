@@ -3,25 +3,32 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:async';
 
-String uri = 'https://github.com/trending/';
+const String url = 'https://github.com';
+const String trendingUrl = url + '/trending/';
 
 class GithubTrend {
   http.Response response;
-  final _uri = 'https://github.com/trending/';
+  String _uri = trendingUrl;
   List<String> languages = [];
+
   /// fetch github trending repos
   Future<List<Map<String, dynamic>>> fetchRepos(
       {language = 'all', String since = 'daily'}) async {
-    String uri = _uri;
+    _uri = trendingUrl;
     if (language != 'all') {
-      uri = _uri + '$language?since=$since';
+      _uri = trendingUrl + '$language?since=$since';
     }
-    this.response = await http.get(uri.toLowerCase());
+    print(_uri);
+    this.response = await http.get(_uri.toLowerCase());
     Document document = parse(this.response.body);
     List<Element> reposHtml = document.querySelectorAll('.repo-list li');
 
     List<Map<String, dynamic>> repos = reposHtml.map((Element repoHtml) {
       Map<String, dynamic> repo = {};
+
+      // repo url
+      String uri = repoHtml.querySelector('h3 a').attributes['href'];
+      repo['url'] = url + uri;
 
       // name
       String name = repoHtml
