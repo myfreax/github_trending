@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Dart",
-            "program": "example/github_trending_example.dart",
+            "program": "example/github_trend_example.dart",
             "request": "launch",
             "type": "dart"
         }
