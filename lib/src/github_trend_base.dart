@@ -18,27 +18,26 @@ class GithubTrend {
     if (language != 'all') {
       _uri = trendingUrl + '$language?since=$since';
     }
-    print(_uri);
     this.response = await http.get(_uri.toLowerCase());
     Document document = parse(this.response.body);
-    List<Element> reposHtml = document.querySelectorAll('.repo-list li');
+    List<Element> reposHtml = document.querySelectorAll('.Box .Box-row');
 
     List<Map<String, dynamic>> repos = reposHtml.map((Element repoHtml) {
       Map<String, dynamic> repo = {};
 
       // repo url
-      String uri = repoHtml.querySelector('h3 a').attributes['href'];
+      String uri = repoHtml.querySelector('h1 a').attributes['href'];
       repo['url'] = url + uri;
 
       // name
       String name = repoHtml
-          .querySelector('h3 a')
+          .querySelector('h1 a')
           .attributes['href']
           .replaceFirst('/', '');
       repo['name'] = name;
 
       // description
-      Element descritionNode = repoHtml.querySelector('.py-1 p');
+      Element descritionNode = repoHtml.querySelector('.Box-row p');
       String description =
           descritionNode != null ? descritionNode.text.trim() : '';
       repo['description'] = description;
