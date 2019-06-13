@@ -1,12 +1,21 @@
+## 0.1.7
+
+ - Adapt to the new github trending layout
+
 ## 0.1.6
+
  - Add url return in fetchRepos function
+
 ## 0.1.5
+
  - Add fetch languages method to docs
 ## 0.1.4
+
  - Rename open api
  - Fix URI duplicate link error
 
 ## 0.1.3
+
  - Fix duplicate requests when getting a language
 
 ## 0.1.2
