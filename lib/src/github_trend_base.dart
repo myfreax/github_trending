@@ -51,7 +51,7 @@ class GithubTrend {
 
       // star
       String star =
-          repoHtml.querySelector('a[href="/$name/stargazers"]').text.trim();
+          repoHtml.querySelector("span[aria-label='star']").parentNode.text.trim();
       repo['star'] = star;
 
       // fork
@@ -88,9 +88,9 @@ class GithubTrend {
     }
     Document document = parse(this.response.body);
     List<Element> languagesHtml = document.querySelectorAll(
-        '.filter-list>li>a,div[data-filterable-for="text-filter-field"]>a>span');
+        '.filter-list>li>a,div[data-filterable-for="text-filter-field"]>a> .select-menu-item-text');
     this.languages = languagesHtml.map((Element ele) {
-      return ele.text.toString();
+      return ele.text.toString().trim();
     }).toList();
     return this.languages;
   }

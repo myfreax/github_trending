@@ -1,3 +1,8 @@
+## 0.1.8
+
+ - Change the way the star element is obtained, and make the library more adaptable to the layout of the github trend
+ - Update the way the language is interpreted
+
 ## 0.1.7
 
  - Adapt to the new github trending layout

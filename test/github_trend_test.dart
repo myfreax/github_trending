@@ -21,7 +21,7 @@ void main() {
 
     test('fetch github language', () async{
       List<String> array = await githubTrend.fetchLanguages();
-      expect(array[0], 'All languages');
+      expect(array[0], 'C++');
     });
   });
 }
