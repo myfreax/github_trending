@@ -1,6 +1,10 @@
 # Github trending api for dart
 Get the popular repository on github,You can also get all the languages.And convert the data into Map, List, JSON
 
+## Install
+
+[install from pub dev](https://pub.dev/packages/github_trend#-installing-tab-)
+
 ## Usage
 
 A simple usage example:
