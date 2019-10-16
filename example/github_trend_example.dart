@@ -1,36 +1,15 @@
 import 'package:github_trend/github_trend.dart';
-import 'dart:convert';
+import 'package:html/dom.dart';
 
 main() async {
   GithubTrend githubTrend = GithubTrend();
-
-  // fetch languages
-  List<String> languages = await githubTrend.fetchLanguages();
-  print(languages);
-  print(json.encode(languages));
-  // default time language
   try {
-    List<Map<String, dynamic>> defaultArray =
-        await githubTrend.fetchRepos();
-    print(defaultArray);
+    Document document = await githubTrend.fetchTrending();
+    List<Repo> repos = Repos(document).list;
+    List<String> languages = Languages(document).list;
+    repos[0].name;
+    print(languages);
   } catch (e) {
-    // get origin response
-    githubTrend.response;
-    print(e);
+    // handle error
   }
-
-  // rust language and default time
-  List<Map<String, dynamic>> rustArray =
-      await githubTrend.fetchRepos(language: 'rust');
-  print(rustArray);
-
-  // rust language and last weekly
-  List<Map<String, dynamic>> rustWeekArray = await githubTrend
-      .fetchRepos(language: 'rust', since: 'weekly');
-  print(rustWeekArray);
-
-  // return default trending when pass error time and language params.
-  List<Map<String, dynamic>> rustWeekArrayerror = await githubTrend
-      .fetchRepos(language: 'error', since: 'error');
-  print(rustWeekArrayerror);
 }

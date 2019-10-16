@@ -1,8 +1,7 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// Github trending api for dart
 library github_trend;
 
-export 'src/github_trend_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/trending.dart';
+export 'src/repos.dart';
+export 'src/repo.dart';
+export 'src/languages.dart';

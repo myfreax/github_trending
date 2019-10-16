@@ -1,3 +1,8 @@
+## 1.1.8
+
+ - Refactoring
+ - Incompatible past version API
+
 ## 0.1.8
 
  - Change the way the star element is obtained, and make the library more adaptable to the layout of the github trend
