@@ -1,3 +1,8 @@
+## 1.1.9
+
+ - Fix test spelling mistake
+ - Fix parent node error
+ 
 ## 1.1.8
 
  - Refactoring
