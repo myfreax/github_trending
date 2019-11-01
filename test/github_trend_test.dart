@@ -23,46 +23,46 @@ void main() {
       expect(repos.length, isNonZero);
     });
 
-    test('repo filed buildBy from default trending list read element by random index', () {
+    test('repo field buildBy from default trending list read element by random index', () {
       expect(repo.buildBy, isList);
       expect(repos.length, isNonZero);
     });
 
-    test('repo filed name from default trending list read element by random index', () {
+    test('repo field name from default trending list read element by random index', () {
       expect(repo.name, isNotEmpty);
       expect(repo.name, isNotNull);
     });
     
-    test('repo filed star from default trending list read element by random index', () {
+    test('repo field star from default trending list read element by random index', () {
       expect(repo.star, isNotEmpty);
       expect(repo.star, isNotNull);
       expect(int.parse(repo.star.replaceAll(',', '')), isPositive);
     });
 
-    test('repo filed url from default trending list read element by random index', () {
+    test('repo field url from default trending list read element by random index', () {
       expect(repo.url, isNotEmpty);
       expect(repo.url, isNotNull);
       expect(RegExp(r"https://github.com/[\w-]+/[\w-]+").hasMatch(repo.url), isTrue);
     });
 
-    test('repo filed todayStar from default trending list read element by random index', () {
+    test('repo field todayStar from default trending list read element by random index', () {
       expect(repo.todayStar, isNotEmpty);
       expect(repo.todayStar, isNotNull);
       expect(int.parse(repo.star.replaceAll(',', '')), isPositive);
     });
 
-    test('repo filed fork from default trending list read element by random index', () {
+    test('repo field fork from default trending list read element by random index', () {
       expect(repo.fork, isNotEmpty);
       expect(repo.fork, isNotNull);
       expect(int.parse(repo.fork.replaceAll(',', '')), isPositive);
     });
 
-    test('repo filed language from default trending list read element by random index', () {
+    test('repo field language from default trending list read element by random index', () {
       expect(repo.language, isNotEmpty);
       expect(repo.language, isNotNull);
     });
 
-    test('repo filed description from default trending list read element by random index', () {
+    test('repo field description from default trending list read element by random index', () {
       expect(repo.description, isNotEmpty);
       expect(repo.description, isNotNull);
     });
