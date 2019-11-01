@@ -18,6 +18,7 @@ class Repo {
   .attributes['href']
   .replaceFirst('/', '');
 
+
   /// get description name from dom node
   String get description {
     Element descritionNode = repoHtml.querySelector('.Box-row p');
@@ -25,16 +26,13 @@ class Repo {
   }
 
   /// get language name from dom node
-  String get language {
-    Element languageNode = repoHtml.querySelector('span[itemprop="programmingLanguage"]');
-    return languageNode != null ? languageNode.text.trim() : 'Unkown';    
-  }
+  String get language => repoHtml.children[3].children[0].text.trim();
 
   /// get star name from dom node
-  String get star => repoHtml.querySelector("span[aria-label='star']").parentNode.text.trim();
+  String get star => repoHtml.children[3].children[1].text.trim();
 
   /// get fork name from dom node
-  String get fork => repoHtml.querySelector("span[aria-label='fork']").parentNode.text.trim();
+  String get fork => repoHtml.children[3].children[2].text.trim();
 
   /// get buildBy name from dom node
   List<String> get buildBy {
@@ -44,8 +42,5 @@ class Repo {
   }
   
   /// get todayStar name from dom node
-  String get todayStar{
-    Element todayStarNode = repoHtml.querySelector('.float-sm-right');
-    return todayStarNode != null ? todayStarNode.text.trim() : '';
-  }
+  String get todayStar => repoHtml.children[3].children[4].text.trim();
 }
