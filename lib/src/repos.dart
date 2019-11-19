@@ -10,7 +10,7 @@ class Repos {
   /// 
   /// only accept [Document] a parameter document
   Repos(Document document) {
-    this.document = document;
+    this.document = document;    
     reposHtml = document.querySelectorAll('.Box .Box-row'); 
   }
 

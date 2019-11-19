@@ -25,46 +25,54 @@ void main() {
 
     test('repo field buildBy from default trending list read element by random index', () {
       expect(repo.buildBy, isList);
+      expect(repo.buildBy, isNot(contains('null')));
       expect(repos.length, isNonZero);
     });
 
     test('repo field name from default trending list read element by random index', () {
       expect(repo.name, isNotEmpty);
       expect(repo.name, isNotNull);
+      expect(repo.name, isNot('null'));
     });
     
     test('repo field star from default trending list read element by random index', () {
       expect(repo.star, isNotEmpty);
       expect(repo.star, isNotNull);
-      expect(int.parse(repo.star.replaceAll(',', '')), isPositive);
+      expect(repo.star, isNot('null'));
+      expect(int.tryParse(repo.star.replaceAll(',', '')), isPositive);
     });
 
     test('repo field url from default trending list read element by random index', () {
       expect(repo.url, isNotEmpty);
       expect(repo.url, isNotNull);
+      expect(repo.url, isNot('null'));
       expect(RegExp(r"https://github.com/[\w-]+/[\w-]+").hasMatch(repo.url), isTrue);
     });
 
     test('repo field todayStar from default trending list read element by random index', () {
       expect(repo.todayStar, isNotEmpty);
       expect(repo.todayStar, isNotNull);
+      expect(repo.todayStar, isNot('null'));
       expect(int.parse(repo.star.replaceAll(',', '')), isPositive);
     });
 
     test('repo field fork from default trending list read element by random index', () {
       expect(repo.fork, isNotEmpty);
       expect(repo.fork, isNotNull);
+      expect(repo.fork, isNot('null'));
       expect(int.parse(repo.fork.replaceAll(',', '')), isPositive);
     });
 
     test('repo field language from default trending list read element by random index', () {
       expect(repo.language, isNotEmpty);
       expect(repo.language, isNotNull);
+      expect(repo.language, isNot('null'));
     });
 
     test('repo field description from default trending list read element by random index', () {
       expect(repo.description, isNotEmpty);
       expect(repo.description, isNotNull);
+      expect(repo.description, isNot('null'));
     });
 
     test('language list', () {

@@ -1,3 +1,7 @@
+## 1.1.10
+
+ - convert error to null string
+ 
 ## 1.1.9
 
  - Fix test spelling mistake
